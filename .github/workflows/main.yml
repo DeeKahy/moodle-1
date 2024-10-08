@@ -1,12 +1,10 @@
 name: Setup Environment
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+      - staging
 
 jobs:
   setup:
@@ -16,9 +14,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install Composer
+    - name: Install Php and Composer
       run: |
         sudo apt update
         sudo apt install php composer
 
-        echo this worked and you can view it 
+    - name: Run phpunit
+      run: |
+        sudo composer require --dev phpunit/phpunit
+
+    
+

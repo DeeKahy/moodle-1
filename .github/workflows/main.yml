@@ -1,0 +1,27 @@
+name: Setup Environment
+
+on:
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Php and Composer
+      run: |
+        sudo apt update
+        sudo apt install php composer
+
+    - name: Run phpunit
+      run: |
+        pwd
+        ls
+
+    

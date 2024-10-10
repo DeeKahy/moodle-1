@@ -21,7 +21,7 @@ jobs:
 
     - name: Run phpunit
       run: |
-        sudo composer require --dev phpunit/phpunit
+        pwd
+        ls
 
     
-
